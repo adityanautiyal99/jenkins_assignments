@@ -9,7 +9,7 @@ pipeline {
         stage('cleaning the target directory') {
             steps {
                 sh '''
-                mvn clean install
+                mvn clea
                 '''
             }
         }
@@ -34,7 +34,14 @@ pipeline {
         }
         stage('Creating package') {
             steps {
-                sh "mvn package"
+                script {
+                    try {
+                        sh "mvn package"
+                    } catch (e) {
+                             currentBuild.result = "FAILED"
+                             throw e
+                          }
+                }
             }
         }
         stage('ArchiveArtifact'){
