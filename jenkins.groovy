@@ -26,13 +26,15 @@ pipeline {
                 }
             }
         }
-        stage('sending test analysis to SonarQube') {
-            steps {
-                withSonarQubeEnv('sonar') {
-                    sh "mvn sonar:sonar"
-                }
-            }
-        }
+        stage("sending analysis and creating package){
+              parallel {
+                stage('sending test analysis to SonarQube') {
+                    steps {
+                        withSonarQubeEnv('sonar') {
+                        sh "mvn sonar:sonar"
+                     }
+                 }
+             }
         stage('Creating package') {
             steps {
                 script {
@@ -42,8 +44,10 @@ pipeline {
                              currentBuild.result = "FAILED"
                              throw e
                           }
-                }
-            }
+                     }
+                 }
+              }
+           }
         }
         stage('ArchiveArtifact'){
             steps {
