@@ -9,14 +9,20 @@ pipeline {
         stage('compiling the code') {
             steps {
                 sh '''
-                mvn clean
                 mvn compile
                 '''
             }
         }
         stage('Testing the code') {
             steps {
-                sh "mvn test"
+                script{
+                    try{
+                     sh "mvn test"
+                    } catch (e) {
+                             currentBuild.result = "FAILED"
+                             throw e
+                           }
+                }
             }
         }
         stage('sending test analysis to SonarQube') {
