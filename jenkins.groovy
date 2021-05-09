@@ -6,10 +6,10 @@ pipeline {
                 git 'https://github.com/opstree/spring3hibernate.git'
             }
         }
-        stage('compiling the code') {
+        stage('cleaning the target directory') {
             steps {
                 sh '''
-                mvn compile
+                mvn clean install
                 '''
             }
         }
