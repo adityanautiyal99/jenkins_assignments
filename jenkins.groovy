@@ -1,11 +1,9 @@
+@Library('jenkis') _
+job 'https://github.com/opstree/spring3hibernate.git'
+
 pipeline {
     agent any
     stages {
-        stage('cloning spring3hibernate') {
-            steps {
-                git 'https://github.com/opstree/spring3hibernate.git'
-            }
-        }
         stage('cleaning the target directory') {
             steps {
                 sh '''
