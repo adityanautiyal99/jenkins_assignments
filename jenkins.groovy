@@ -4,7 +4,7 @@ job
 pipeline {
     agent any
     stages {
-       stage('cleaning the target directory') {
+       stage('cloning the directory') {
             steps {
                 git 'https://github.com/opstree/spring3hibernate.git'
             }
