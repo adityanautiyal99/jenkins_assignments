@@ -9,8 +9,7 @@ pipeline {
         stage('cleaning the target directory') {
             steps {
                 sh '''
-                mvn clean
-                mvn compile
+                mvn clean compile
                 '''
             }
         }
