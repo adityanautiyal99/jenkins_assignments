@@ -61,7 +61,7 @@ pipeline {
             steps{
                 rtServer (
                 id: 'key',
-                url: 'http://6322371616d0.ngrok.io/artifactory',
+                url: 'http://52f4e1510188.ngrok.io/artifactory',
                 // If you're using username and password:
                 username: 'admin',
                 password: '6DE@Dpool9',
