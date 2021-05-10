@@ -7,7 +7,6 @@ pipeline {
         stage('cleaning the target directory') {
             steps {
                 sh '''
-                cd spring3hibernate
                 mvn clean compile
                 '''
             }
