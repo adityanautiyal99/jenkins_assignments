@@ -57,7 +57,7 @@ pipeline {
                     archiveArtifacts 'target/*.war'   
             }
         }
-       /*stage("Uploading Artifact"){
+       stage("Uploading Artifact"){
             steps{
                 rtServer (
                 id: 'key',
@@ -93,9 +93,9 @@ pipeline {
                         }
                     ]
                 }''' 
-                )
+                )*/
             }
-        }*/
+        }
     }
     post {
         success {
