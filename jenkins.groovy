@@ -23,7 +23,7 @@ pipeline {
                 }
             }
         }
-        stage("sending analysis and creating package){
+        stage('sending analysis and creating package'){
               parallel {
                 stage('sending test analysis to SonarQube') {
                     steps {
