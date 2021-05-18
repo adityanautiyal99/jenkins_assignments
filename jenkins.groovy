@@ -110,7 +110,7 @@ pipeline {
     }
 }
 def notifyFailed() {
-    slackSend (color: '#00FF00', message: "Failed: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+    slackSend (color: 'danger', message: "Failed: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
 }
 def notifySuccessful() {
     emailext attachLog: true,
